@@ -1,7 +1,6 @@
-import { HashRouter, Routes, Route } from "react-router-dom"; // 👈 Changed from BrowserRouter to HashRouter
+import { HashRouter, Routes, Route } from "react-router-dom"; // HashRouter is correct
 import Home from "./components/views/home";
 import { Header } from "./components/header";
-// ... (rest of the imports)
 import CloudNativeDev from "./components/views/cloudeNativedev";
 import HeroConsultation from "./components/RDServices/HeroConsultation";
 import EcoSystemEnablement from "./components/views/EcoSystemEnablement";
@@ -15,12 +14,12 @@ import About from "./components/views/About";
 import ContactSection from "./components/views/Contectus";
 import SystemMigration from "./components/views/systemmigration";
 import Footer from "./components/home/footer";
+
 function App() {
-  // Use the repository name for the basename
-  const basename = "/wetechon1"; 
+  // const basename = "/wetechon1"; // 👈 REMOVED: HashRouter usually works best without a basename
   
   return (
-    <HashRouter basename={basename}> {/* 👈 Use HashRouter with basename */}
+    <HashRouter> {/* 👈 Removed basename={basename} */}
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
