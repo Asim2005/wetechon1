@@ -1,22 +1,26 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom"; // 👈 Changed from BrowserRouter to HashRouter
 import Home from "./components/views/home";
 import { Header } from "./components/header";
-import HeroConsultation from "./components/views/r&dasservices";
-import Ai from "./components/views/aiEnabelment";
+// ... (rest of the imports)
+import CloudNativeDev from "./components/views/cloudeNativedev";
+import HeroConsultation from "./components/RDServices/HeroConsultation";
 import EcoSystemEnablement from "./components/views/EcoSystemEnablement";
-import SystemMigration from "./components/views/systemmigration";
-import Footer from "./components/home/footer";
-import  SoftwareVendors from "./components/views/SoftwareVendors";
-import CloudserviceProvider1 from "./components/views/CloudServiceprovider";
+import Ai from "./components/views/aiEnabelment";
+import SoftwareVendors from "./components/views/SoftwareVendors";
 import ManageServiceProviders from "./components/views/ManageServiceProviders";
-import FixedScopeModel from "./components/views/fixedScopeModels";
+import CloudserviceProvider1 from "./components/RDServices/CloudserviceProvider1";
 import TeamDilivery from "./components/views/TeamDiliveryModels";
+import FixedScopeModel from "./components/views/fixedScopeModels";
 import About from "./components/views/About";
 import ContactSection from "./components/views/Contectus";
-import CloudNativeDev from "./components/views/cloudeNativedev";
+import SystemMigration from "./components/views/systemmigration";
+import Footer from "./components/home/footer";
 function App() {
+  // Use the repository name for the basename
+  const basename = "/wetechon1"; 
+  
   return (
-    <BrowserRouter>
+    <HashRouter basename={basename}> {/* 👈 Use HashRouter with basename */}
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -38,7 +42,7 @@ function App() {
       </Routes> 
 
       <Footer />
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
